@@ -22,6 +22,7 @@ namespace atom {
 NativeWindow::NativeWindow(const mate::Dictionary& options,
                            NativeWindow* parent)
     : widget_(new views::Widget),
+      content_view_(nullptr),
       has_frame_(true),
       transparent_(false),
       enable_larger_than_screen_(false),
@@ -520,7 +521,7 @@ const views::Widget* NativeWindow::GetWidget() const {
 }
 
 NativeWindowRelay::NativeWindowRelay(base::WeakPtr<NativeWindow> window)
-  : key(UserDataKey()), window(window) {}
+    : key(UserDataKey()), window(window) {}
 
 NativeWindowRelay::~NativeWindowRelay() = default;
 
